@@ -2,8 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { VolumeOffIcon, VolumeUpIcon } from '@heroicons/react/outline';
 
-const URL = 'https://baby-dangelo.vercel.app/';
-
 export default function Home() {
   const audioRef = useRef();
   const [playing, setPlaying] = useState(false);
@@ -24,8 +22,8 @@ export default function Home() {
   return (
     <div>
       <audio ref={audioRef} preload="auto" loop className="hidden">
-        <source src={URL + '/public/heartbeat.mp3'} type="audio/mp3" />
-        <source src={URL + '/public/heartbeat.ogg'} type="audio/ogg" />
+        <source src="heartbeat.mp3" type="audio/mp3" />
+        <source src="heartbeat.ogg" type="audio/ogg" />
       </audio>
 
       <div className="z-10 absolute top-6 sm:top-8 left-1/2 transform -translate-x-1/2">
