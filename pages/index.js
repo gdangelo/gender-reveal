@@ -11,17 +11,25 @@ export default function Home() {
   useEffect(() => {
     const audio = audioRef.current;
 
-    if (playing && audio) {
-      audio.play();
-    }
-    if (!playing && audio) {
-      audio.pause();
+    if (audio) {
+      if (playing) {
+        audio.play();
+      }
+      if (!playing) {
+        audio.pause();
+      }
     }
   }, [playing]);
 
   return (
     <div>
-      <audio ref={audioRef} preload="auto" loop className="hidden">
+      <audio
+        ref={audioRef}
+        preload="auto"
+        loop
+        controls
+        onPlay={() => alert('Audio is playing!!!')}
+      >
         <source src="heartbeat.mp3" type="audio/mp3" />
         <source src="heartbeat.ogg" type="audio/ogg" />
       </audio>
