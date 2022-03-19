@@ -31,7 +31,6 @@ export default function Home() {
         </p>
         <button
           type="button"
-          onTouchStart={() => setPlaying(prev => !prev)}
           onClick={() => setPlaying(prev => !prev)}
           className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-full hover-hover:opacity-50 hover:opacity-100 transition appearance-none"
         >
@@ -39,7 +38,7 @@ export default function Home() {
         </button>
       </div>
 
-      <main className="h-screen overflow-hidden flex flex-col sm:flex-row">
+      <div className="h-screen overflow-hidden flex flex-col sm:flex-row">
         <Link href="/reveal?choice=g">
           <a className="flex-1 bg-pink-500 hover:bg-opacity-90 flex items-center justify-center transition">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white inline-flex items-center space-x-8">
@@ -54,7 +53,7 @@ export default function Home() {
             </h1>
           </a>
         </Link>
-      </main>
+      </div>
     </div>
   );
 }
