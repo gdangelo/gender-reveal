@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { VolumeOffIcon, VolumeUpIcon } from '@heroicons/react/outline';
 
@@ -22,27 +21,22 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Gender Reveal</title>
-        <meta name="description" content="Gender Reveal" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <audio ref={audioRef} loop>
         <source src="heartbeat.mp3" type="audio/mp3" />
       </audio>
 
-      <button
-        type="button"
-        onClick={() => setPlaying(prev => !prev)}
-        className="z-10 absolute top-4 sm:top-6 right-4 sm:right-8 opacity-50 hover:opacity-100 transition"
-      >
-        <VolumeIcon className="text-white w-10 h-10 sm:w-12 sm:h-12" />
-      </button>
-
-      <p className="z-10 absolute top-6 sm:top-8 left-1/2 transform -translate-x-1/2 text-white text-normal sm:text-xl uppercase bg-gray-900 px-4 py-1 rounded-full font-medium bg-opacity-60 text-center">
-        Fais un choix
-      </p>
+      <div className="z-10 absolute top-6 sm:top-8 left-1/2 transform -translate-x-1/2">
+        <p className="text-white text-normal sm:text-xl uppercase bg-gray-900 px-4 py-1 rounded-full font-medium bg-opacity-60 text-center">
+          Fais un choix
+        </p>
+        <button
+          type="button"
+          onClick={() => setPlaying(prev => !prev)}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full opacity-50 hover:opacity-100 transition"
+        >
+          <VolumeIcon className="text-white w-10 h-10 ml-2 sm:ml-4 sm:w-12 sm:h-12" />
+        </button>
+      </div>
 
       <main className="h-screen overflow-hidden flex flex-col sm:flex-row">
         <Link href="/reveal?choice=g">

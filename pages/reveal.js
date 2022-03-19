@@ -35,7 +35,11 @@ const Reveal = () => {
         timer <= 0 ? 'bg-gray-50' : blue ? 'bg-blue-500' : 'bg-pink-500'
       )}
     >
-      <h1 className={classNames('text-[16rem] font-bold text-white')}>
+      <h1
+        className={classNames(
+          'text-[10rem] sm:text-[16rem] font-bold text-white'
+        )}
+      >
         {timer > 0 ? timer : null}
       </h1>
     </div>
