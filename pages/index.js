@@ -28,8 +28,8 @@ export default function Home() {
         preload="auto"
         loop
         controls
-        hidden
         onPlay={() => alert('Audio is playing!!!')}
+        className="absolute -translate-x-full"
       >
         <source src="heartbeat.mp3" type="audio/mp3" />
         <source src="heartbeat.ogg" type="audio/ogg" />
