@@ -33,7 +33,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setPlaying(prev => !prev)}
-          className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-full hover-hover:opacity-50 hover:opacity-100 transition appearance-none"
+          className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-full hover-hover:opacity-50 hover:opacity-100 focus:opacity-100 transition appearance-none focus:outline-none"
         >
           <VolumeIcon className="text-white w-10 h-10 sm:ml-4 sm:w-12 sm:h-12" />
         </button>
