@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div>
-      <audio ref={audioRef} controls loop className="hidden">
+      <audio ref={audioRef} preload="auto" loop className="hidden">
         <source src="heartbeat.mp3" type="audio/mp3" />
         <source src="heartbeat.ogg" type="audio/ogg" />
       </audio>
