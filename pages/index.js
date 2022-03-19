@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { VolumeOffIcon, VolumeUpIcon } from '@heroicons/react/outline';
 
@@ -8,18 +8,19 @@ export default function Home() {
 
   const VolumeIcon = playing ? VolumeUpIcon : VolumeOffIcon;
 
-  useEffect(() => {
-    const audio = audioRef.current;
+  const handleOnClickAudio = () => {
+    const audio = audioRef?.current;
 
     if (audio) {
-      if (playing) {
+      if (audio.paused) {
+        setPlaying(true);
         audio.play();
-      }
-      if (!playing) {
+      } else {
+        setPlaying(false);
         audio.pause();
       }
     }
-  }, [playing]);
+  };
 
   return (
     <div>
@@ -29,6 +30,7 @@ export default function Home() {
         loop
         controls
         onPlay={() => alert('Audio is playing!!!')}
+        className="hidden"
       >
         <source src="heartbeat.mp3" type="audio/mp3" />
         <source src="heartbeat.ogg" type="audio/ogg" />
@@ -40,7 +42,7 @@ export default function Home() {
         </p>
         <button
           type="button"
-          onClick={() => setPlaying(prev => !prev)}
+          onClick={handleOnClickAudio}
           className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 translate-x-full hover-hover:opacity-50 hover:opacity-100 focus:opacity-100 transition appearance-none focus:outline-none"
         >
           <VolumeIcon className="text-white w-10 h-10 sm:ml-4 sm:w-12 sm:h-12" />
