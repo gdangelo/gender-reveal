@@ -32,7 +32,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setPlaying(prev => !prev)}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full opacity-50 hover:opacity-100 transition"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full opacity-50 hover:opacity-100 transition appearance-none"
         >
           <VolumeIcon className="text-white w-10 h-10 ml-2 sm:ml-4 sm:w-12 sm:h-12" />
         </button>
@@ -40,20 +40,14 @@ export default function Home() {
 
       <main className="h-screen overflow-hidden flex flex-col sm:flex-row">
         <Link href="/reveal?choice=g">
-          <a
-            type="button"
-            className="flex-1 bg-pink-500 hover:bg-opacity-90 flex items-center justify-center transition"
-          >
+          <a className="flex-1 bg-pink-500 hover:bg-opacity-90 flex items-center justify-center transition">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white inline-flex items-center space-x-8">
               Fille
             </h1>
           </a>
         </Link>
         <Link href="/reveal?choice=b">
-          <a
-            type="button"
-            className="flex-1 bg-blue-500 hover:bg-opacity-90 flex items-center justify-center transition"
-          >
+          <a className="flex-1 bg-blue-500 hover:bg-opacity-90 flex items-center justify-center transition">
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white">
               Garçon
             </h1>
