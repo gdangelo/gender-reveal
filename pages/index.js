@@ -21,8 +21,9 @@ export default function Home() {
 
   return (
     <div>
-      <audio ref={audioRef} loop>
+      <audio ref={audioRef} loop className="hidden">
         <source src="heartbeat.mp3" type="audio/mp3" />
+        <source src="heartbeat.ogg" type="audio/ogg" />
       </audio>
 
       <div className="z-10 absolute top-6 sm:top-8 left-1/2 transform -translate-x-1/2">
