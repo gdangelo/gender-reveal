@@ -29,7 +29,6 @@ export default function Home() {
         loop
         controls
         onPlay={() => alert('Audio is playing!!!')}
-        className="absolute -translate-x-full"
       >
         <source src="heartbeat.mp3" type="audio/mp3" />
         <source src="heartbeat.ogg" type="audio/ogg" />
