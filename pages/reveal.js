@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import classNames from 'classnames';
 import { shootFireworks } from '../utils';
+
+import reveal from '/public/gender_reveal.gif';
 
 const Reveal = () => {
   const router = useRouter();
@@ -9,6 +12,10 @@ const Reveal = () => {
 
   const [timer, setTimer] = useState(10);
   const [blue, setBlue] = useState(choice === 'b');
+  const [loaded, setLoaded] = useState(false);
+  const [shouldFire, setShouldFire] = useState(false);
+
+  const shouldReveal = timer <= 0;
 
   useEffect(() => {
     let intervalId = setInterval(
@@ -23,10 +30,17 @@ const Reveal = () => {
   }, [timer]);
 
   useEffect(() => {
-    if (timer === 0) {
+    if (loaded) {
+      let intervalId = setTimeout(() => setShouldFire(true), 1000);
+      return () => clearInterval(intervalId);
+    }
+  }, [loaded]);
+
+  useEffect(() => {
+    if (shouldFire) {
       shootFireworks({ duration: 10000, count: 50 });
     }
-  }, [timer]);
+  }, [shouldFire]);
 
   return (
     <div
@@ -37,11 +51,20 @@ const Reveal = () => {
     >
       <h1
         className={classNames(
-          'text-[10rem] sm:text-[16rem] font-bold text-white'
+          'text-[10rem] sm:text-[16rem] font-bold text-white',
+          shouldReveal && 'hidden'
         )}
       >
-        {timer > 0 ? timer : null}
+        {timer}
       </h1>
+      {shouldReveal ? (
+        <Image
+          src={reveal}
+          quality={100}
+          priority={true}
+          onLoadingComplete={() => setLoaded(true)}
+        />
+      ) : null}
     </div>
   );
 };

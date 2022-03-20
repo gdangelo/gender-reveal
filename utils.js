@@ -8,8 +8,7 @@ export const shootFireworks = ({ duration = 5000, count = 50 }) => {
     spread: 360,
     ticks: 60,
     zIndex: 9999,
-    colors: ['#3b82f6'],
-    // rose -> #ec4899
+    colors: ['#ec4899'],
   };
 
   function randomInRange(min, max) {
